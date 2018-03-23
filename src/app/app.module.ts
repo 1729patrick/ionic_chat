@@ -6,25 +6,35 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { FirebaseAppConfig, AngularFireModule } from 'angularfire2';
+
+const firebaseAppConfig: FirebaseAppConfig = { //configurações para o firebase -> https://console.firebase.google.com/project/ionic1729firebase-chat/overview
+    apiKey: "AIzaSyDXE-GF2bSlUu02nM0q0nfDMXS5NLmYUzU",
+    authDomain: "ionic1729firebase-chat.firebaseapp.com",
+    databaseURL: "https://ionic1729firebase-chat.firebaseio.com",
+    storageBucket: "ionic1729firebase-chat.appspot.com",
+    messagingSenderId: "196373471608"
+};
 
 @NgModule({
-  declarations: [
-    MyApp,
-    HomePage
-  ],
-  imports: [
-    BrowserModule,
-    IonicModule.forRoot(MyApp)
-  ],
-  bootstrap: [IonicApp],
-  entryComponents: [
-    MyApp,
-    HomePage
-  ],
-  providers: [
-    StatusBar,
-    SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
-  ]
+    declarations: [
+        MyApp,
+        HomePage
+    ],
+    imports: [
+        BrowserModule,
+        IonicModule.forRoot(MyApp),
+        AngularFireModule.initializeApp(firebaseAppConfig)
+    ],
+    bootstrap: [IonicApp],
+    entryComponents: [
+        MyApp,
+        HomePage
+    ],
+    providers: [
+        StatusBar,
+        SplashScreen,
+        {provide: ErrorHandler, useClass: IonicErrorHandler}
+    ]
 })
 export class AppModule {}
