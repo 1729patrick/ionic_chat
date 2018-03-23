@@ -9,6 +9,8 @@ import { HomePage } from '../pages/home/home';
 import { FirebaseAppConfig, AngularFireModule } from 'angularfire2';
 import { SignupPage } from '../pages/signup/signup';
 import { UserService } from '../providers/user/user.service';
+import { AngularFireDatabase } from 'angularfire2/database';
+
 
 const firebaseAppConfig: FirebaseAppConfig = { //configurações para o firebase -> https://console.firebase.google.com/project/ionic1729firebase-chat/overview
     apiKey: "AIzaSyDXE-GF2bSlUu02nM0q0nfDMXS5NLmYUzU",
@@ -40,6 +42,7 @@ const firebaseAppConfig: FirebaseAppConfig = { //configurações para o firebase
         SplashScreen,
         {provide: ErrorHandler, useClass: IonicErrorHandler},
         UserService,
+        AngularFireDatabase,
     ]
 })
 export class AppModule {}
